@@ -1,0 +1,23 @@
+<php>
+<head>
+<title>
+</title>
+</head>
+<body>
+<table>
+<tr>
+	<td rowspan="2">
+		a
+	</td>
+	<td>
+		b
+	</td>
+</tr>
+<tr>
+	<td>
+		c
+	</td>
+</tr>
+</table>
+</body>
+</php>
