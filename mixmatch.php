@@ -7,9 +7,9 @@ if (isset($_POST["btnAdd"]))
 	 $email=$_POST["txtemail"];
 	$id=$_POST["pro_id"];
 	$queryCheck="SELECT * FROM `shoppingcart` WHERE sc_id='$id' AND email='$email'";
-	$resultCheck=mysql_query($queryCheck);
+	$resultCheck=mysqli_query($queryCheck);
 	
-		if(mysql_num_rows($resultCheck)==0){
+		if(mysqli_num_rows($resultCheck)==0){
 	
 	$name=$_POST["pro_name"];
 	$price=$_POST["pro_price"];
@@ -19,7 +19,7 @@ if (isset($_POST["btnAdd"]))
 	$img=$_POST["pro_img"];
 	
 	$queryAdd = " INSERT INTO `shoppingcart` (sc_id,sc_name,sc_price,sc_qty,sc_total,email,sc_img) VALUES ('$id','$name','$price','$qty','$total','$email','$img' )";
-	mysql_query($queryAdd);
+	mysqli_query($queryAdd);
 	
 ?>
 	<script language="JavaScript">
@@ -62,8 +62,8 @@ else
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$name="SELECT cust_fname FROM customer WHERE cust_email='$email'";
-			$sql=mysql_query($name);
-			$display = mysql_fetch_assoc($sql);
+			$sql=mysqli_query($con,$name);
+			$display = mysqli_fetch_assoc($sql);
 			$name = $display['cust_fname'];
 			?>
 				<a href="homepage.php">Welcome, <?php echo $name;?></a>
@@ -90,8 +90,8 @@ else
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM shoppingcart WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		
 			<li><a href="cart.php"><span>Shopping Cart (<?php echo $c ?> Items)</span></a></li>
@@ -131,9 +131,9 @@ if(isset($_SESSION['email'])):
 
 $email= $_SESSION['email'];
 $query2 = "SELECT * FROM password WHERE email='$email'";
-$result2 = mysql_query($query2);
+$result2 = mysqli_query($con,$query2);
 
-		while ($col=mysql_fetch_array($result2)){
+		while ($col=mysqli_fetch_array($result2)){
 			
  ?>
 	<form name=frmAdd method="POST" action="mixmatch.php">

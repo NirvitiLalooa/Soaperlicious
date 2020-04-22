@@ -18,8 +18,8 @@ SESSION_START();
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$name="SELECT cust_fname FROM customer WHERE cust_email='$email'";
-			$sql=mysql_query($name);
-			$display = mysql_fetch_assoc($sql);
+			$sql=mysqli_query($con,$name);
+			$display = mysqli_fetch_assoc($sql);
 			$name = $display['cust_fname'];
 			?>
 				<a href="homepage.php">Welcome, <?php echo $name;?></a>
@@ -38,8 +38,8 @@ SESSION_START();
 		<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM shoppingcart WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		<a href="homepage.php" id="logo"></a>
 		<ul id="navigation">
@@ -61,16 +61,16 @@ if(isset($_POST["btnUpdate"]))
 	$qty=$_POST["txtqty"];
 	
 	$price="SELECT sc_price FROM shoppingcart WHERE sc_id='$id'";
-	$resultprice= mysql_query($price, $con);
-	$rp=mysql_fetch_array($resultprice);
+	$resultprice= mysqli_query($con, $price);
+	$rp=mysqli_fetch_array($resultprice);
 	$rp1 = $rp['sc_price'];
 	
 	$newTotal=$qty*$rp1;
 	$queryUpdate = "UPDATE shoppingcart SET sc_qty='$qty', sc_total='$newTotal' WHERE sc_id ='$id'";
-	$retval = mysql_query($queryUpdate,$con);
+	$retval = mysqli_query($queryUpdate,$con);
 		if(! $retval )
 			{
-				die('Could not update data: ' . mysql_error());
+				die('Could not update data: ' . mysqli_error());
 			}
 	echo "<script language='JavaScript'>
 		alert('Shopping cart has been updated.')
@@ -83,10 +83,10 @@ if(isset($_POST["btnRemove"]))
 	$id=$_POST["txtid"];
 	
 	$queryRemove = "DELETE FROM shoppingcart WHERE sc_id='$id'";
-	$retval1 = mysql_query($queryRemove,$con);
+	$retval1 = mysqli_query($queryRemove,$con);
 		if(! $retval1 )
 			{
-				die('Could not remove: ' . mysql_error());
+				die('Could not remove: ' . mysqli_error());
 			}
 	echo "<script language='JavaScript'>
 		alert('Soap has been removed from your shopping cart.')
@@ -111,9 +111,9 @@ if(isset($_POST["btnRemove"]))
 		
 			$email=$_SESSION['email'];
 			$query = "SELECT * FROM `shoppingcart` WHERE email='$email' ORDER BY sc_id ASC";
-			$result = mysql_query($query);
+			$result = mysqli_query($con,$query);
 			$totAll = 0;
-			while($row=mysql_fetch_array($result)){
+			while($row=mysqli_fetch_array($result)){
 			?>
 <form name="frmUpdate" method="post" action="cart.php">
 <tr><td><font face='Century Gothic' size='4'><center><?php echo $row[0];?><input type="hidden" name="txtid" size=15 value="<?php echo $row[0];?>">

@@ -12,7 +12,7 @@ if (isset($_POST["btnSubmit"]))
 			$msg=$_POST["txtmsg"];	
 	
 	$queryAdd = "INSERT INTO `feedback` (feedname,email,feedphone,feedmessage) VALUES ('$name','$email','$phone','$msg')";
-	mysql_query($queryAdd);	
+	mysqli_query($queryAdd);	
 	
 ?>
 
@@ -49,8 +49,8 @@ if (isset($_POST["btnSubmit"]))
 			<?php if(isset($_SESSION['email'])): 
 					$email=$_SESSION['email'];
 					$name = "SELECT cust_fname FROM customer WHERE cust_email='$email'";
-					$custname= mysql_query($name);
-					while ($row=mysql_fetch_array($custname)) {
+					$custname= mysqli_query($con,$name);
+					while ($row=mysqli_fetch_array($custname)) {
 				?>
 					<a href="homepage.php">Welcome, <?php echo $row[0]; }?></a>
 			<?php else: ?>
@@ -68,8 +68,8 @@ if (isset($_POST["btnSubmit"]))
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM `shoppingcart` WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		<a href="homepage.php" id="logo"></a>
 		<ul id="navigation">

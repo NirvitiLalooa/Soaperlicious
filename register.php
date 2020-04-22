@@ -3,8 +3,8 @@ include "myConn.php";
 if (isset($_POST["btnSubmit"]))
 {	$email=$_POST["txtemail"];
 	$queryCheck="SELECT * FROM `password` WHERE email='$email'";
-	$resultCheck=mysql_query($queryCheck);
-		if(mysql_num_rows($resultCheck)==0){
+	$resultCheck=mysqli_query($queryCheck);
+		if(mysqli_num_rows($resultCheck)==0){
 			$fname=$_POST["txtfname"];
 			$lname=$_POST["txtlname"];
 			$email=$_POST["txtemail"];
@@ -12,9 +12,9 @@ if (isset($_POST["btnSubmit"]))
 			$contact=$_POST["txtcontact"];
 			
 	$queryAdd="INSERT INTO `password` (email,pwd) VALUES ('$email','$pwd')";
-	mysql_query($queryAdd);
+	mysqli_query($queryAdd);
 	$queryaddprofile = "INSERT INTO `customer` (cust_fname,cust_lname,cust_email,cust_pwd,cust_contact) VALUES ('$fname','$lname','$email','$pwd','$contact')";
-		mysql_query($queryaddprofile);
+		mysqli_query($queryaddprofile);
 ?>
 
 		<script language="JavaScript">

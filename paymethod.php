@@ -18,8 +18,8 @@ SESSION_START();
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$name="SELECT cust_fname FROM customer WHERE cust_email='$email'";
-			$sql=mysql_query($name);
-			$display = mysql_fetch_assoc($sql);
+			$sql=mysqli_query($con,$name);
+			$display = mysqli_fetch_assoc($sql);
 			$name = $display['cust_fname'];
 			?>
 				<a href="homepage.php">Welcome, <?php echo $name;?></a>
@@ -38,8 +38,8 @@ SESSION_START();
 		<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM shoppingcart WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		<a href="homepage.php" id="logo"></a>
 		<ul id="navigation">

@@ -18,8 +18,8 @@ SESSION_START();
 				<?php if(isset($_SESSION['email'])): 
 					$email=$_SESSION['email'];
 					$name = "SELECT cust_fname FROM customer WHERE cust_email='$email'";
-					$custname= mysql_query($name);
-					while ($row=mysql_fetch_array($custname)) {
+					$custname= mysqli_query($con,$name);
+					while ($row=mysqli_fetch_array($custname)) {
 				?>
 					<a href="homepage.php">Welcome, <?php echo $row[0]; }?></a>
 			<?php else: ?>
@@ -44,8 +44,8 @@ SESSION_START();
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM shoppingcart WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		<li><a href="cart.php"><span>Shopping Cart (<?php echo $c; ?> Items)</span></a></li>
 			<?php else: ?>
@@ -70,9 +70,9 @@ SESSION_START();
 		$search = $_POST["txtsearch"];
 		
 		$querySearch = "SELECT * FROM `product` WHERE pro_name LIKE '%$search%'";
-		$res=mysql_query($querySearch);
+		$res=mysqli_query($con,$querySearch);
 	
-		while($row=mysql_fetch_array($res)){
+		while($row=mysqli_fetch_array($res)){
 ?>
 <tr><td><font face='Century Gothic' size='4' color="black"><center><?php echo $row[0];?></td>
 	<td><center><img src="<?php echo $row[2];?>" height="100" width="100"></td>

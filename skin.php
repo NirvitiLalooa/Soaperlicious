@@ -20,8 +20,8 @@
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$name="SELECT cust_fname FROM customer WHERE cust_email='$email'";
-			$sql=mysql_query($name);
-			$display = mysql_fetch_assoc($sql);
+			$sql=mysqli_query($con,$name);
+			$display = mysqli_fetch_assoc($sql);
 			$name = $display['cust_fname'];
 			?>
 				<a href="homepage.php">Welcome, <?php echo $name;?></a>

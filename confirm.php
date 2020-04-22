@@ -18,114 +18,114 @@ if (isset($_POST["btnConfirm"]))
 	
 	$ntt = 0;
 	$q1= "SELECT * FROM `shoppingcart` WHERE sc_id='NTT'";
-	$qntt=mysql_query($q1);
-	while ($row=mysql_fetch_array($qntt)) 
+	$qntt=mysqli_query($q1);
+	while ($row=mysqli_fetch_array($qntt)) 
 	$ntt=$row[3];
 	
 	$abc=0;
 	$q2= "SELECT * FROM `shoppingcart` WHERE sc_id='ABC' AND email='$email'";
-	$qabc=mysql_query($q2);
-	while ($row=mysql_fetch_array($qabc))
+	$qabc=mysqli_query($q2);
+	while ($row=mysqli_fetch_array($qabc))
 	$abc=$row[3];	
 	
 	$sbs=0;
 	$q3= "SELECT * FROM `shoppingcart` WHERE sc_id='SBS' AND email='$email'";
-	$qsbs=mysql_query($q3);
-	while ($row=mysql_fetch_array($qsbs))
+	$qsbs=mysqli_query($q3);
+	while ($row=mysqli_fetch_array($qsbs))
 	$sbs=$row[3];	
 	
 	$pb=0;
 	$q4= "SELECT * FROM `shoppingcart` WHERE sc_id='PB' AND email='$email'";
-	$qpb=mysql_query($q4);
-	while ($row=mysql_fetch_array($qpb)) 
+	$qpb=mysqli_query($q4);
+	while ($row=mysqli_fetch_array($qpb)) 
 	$pb=$row[3];	
 	
 	$lps=0;
 	$q5= "SELECT * FROM `shoppingcart` WHERE sc_id='LPS' AND email='$email'";
-	$qlps=mysql_query($q5);
-	while ($row=mysql_fetch_array($qlps)) 
+	$qlps=mysqli_query($q5);
+	while ($row=mysqli_fetch_array($qlps)) 
 	$lps=$row[3];
 
 	$rw=0;
 	$q6= "SELECT * FROM `shoppingcart` WHERE sc_id='RW' AND email='$email'";
-	$qrw=mysql_query($q6);
-	while ($row=mysql_fetch_array($qrw)) 
+	$qrw=mysqli_query($q6);
+	while ($row=mysqli_fetch_array($qrw)) 
 	$rw=$row[3];
 	
 	$oc=0;
 	$q7= "SELECT * FROM `shoppingcart` WHERE sc_id='OC' AND email='$email'";
-	$qoc=mysql_query($q7);
-	while ($row=mysql_fetch_array($qoc)) 
+	$qoc=mysqli_query($q7);
+	while ($row=mysqli_fetch_array($qoc)) 
 	$oc=$row[3];	
 	
 	$ll=0;
 	$q8= "SELECT * FROM `shoppingcart` WHERE sc_id='LL' AND email='$email'";
-	$qll=mysql_query($q8);
-	while ($row=mysql_fetch_array($qll))
+	$qll=mysqli_query($q8);
+	while ($row=mysqli_fetch_array($qll))
 	$ll=$row[3];	
 
 	$opw=0;
 	$q9= "SELECT * FROM `shoppingcart` WHERE sc_id='OPW' AND email='$email'";
-	$qopw=mysql_query($q9);
-	while ($row=mysql_fetch_array($qopw))
+	$qopw=mysqli_query($q9);
+	while ($row=mysqli_fetch_array($qopw))
 	$opw=$row[3];
 	
 	$gs01=0;
 	$q10= "SELECT * FROM `shoppingcart` WHERE sc_id='GS01' AND email='$email'";
-	$qgs01=mysql_query($q10);
-   	while ($row=mysql_fetch_array($qgs01)) 
+	$qgs01=mysqli_query($q10);
+   	while ($row=mysqli_fetch_array($qgs01)) 
 	$gs01=$row[3]; 
 	
 	$gs02=0;
 	$q11= "SELECT * FROM `shoppingcart` WHERE sc_id='GS02' AND email='$email'";
-	$qgs02=mysql_query($q11);
-	while ($row=mysql_fetch_array($qgs02))
+	$qgs02=mysqli_query($q11);
+	while ($row=mysqli_fetch_array($qgs02))
 	$gs02=$row[3];	
 	
 	$gs03=0;
 	$q12= "SELECT * FROM `shoppingcart` WHERE sc_id='GS03' AND email='$email'";
-	$qgs03=mysql_query($q12);
-	while ($row=mysql_fetch_array($qgs03)) 
+	$qgs03=mysqli_query($q12);
+	while ($row=mysqli_fetch_array($qgs03)) 
 	$gs03=$row[3];	
 	
 	$gs04=0;
 	$q13= "SELECT * FROM `shoppingcart` WHERE sc_id='GS04' AND email='$email'";
-	$qgs04=mysql_query($q13);
-	while ($row=mysql_fetch_array($qgs04)) 
+	$qgs04=mysqli_query($q13);
+	while ($row=mysqli_fetch_array($qgs04)) 
 	$gs04=$row[3];	
 	
 	$gs05=0;
 	$q14= "SELECT * FROM `shoppingcart` WHERE sc_id='GS05' AND email='$email'";
-	$qgs05=mysql_query($q14);
-	while ($row=mysql_fetch_array($qgs05))
+	$qgs05=mysqli_query($q14);
+	while ($row=mysqli_fetch_array($qgs05))
 	$gs05=$row[3];	
 
 	$gs06=0;
 	$q15= "SELECT * FROM `shoppingcart` WHERE sc_id='GS06' AND email='$email'";
-	$qgs06=mysql_query($q15);
-	while ($row=mysql_fetch_array($qgs06)) 
+	$qgs06=mysqli_query($q15);
+	while ($row=mysqli_fetch_array($qgs06)) 
 	$gs06=$row[3];	
 
 	$gs07=0;
 	$q16= "SELECT * FROM `shoppingcart` WHERE sc_id='GS07' AND email='$email'";
-	$qgs07=mysql_query($q16);
-	while ($row=mysql_fetch_array($qgs07)) 
+	$qgs07=mysqli_query($q16);
+	while ($row=mysqli_fetch_array($qgs07)) 
 	$gs07=$row[3];	
 
 	$gs08=0;
 	$q17= "SELECT * FROM `shoppingcart` WHERE sc_id='GS08' AND email='$email'";
-	$qgs08=mysql_query($q17);
-	while ($row=mysql_fetch_array($qgs08)) 
+	$qgs08=mysqli_query($q17);
+	while ($row=mysqli_fetch_array($qgs08)) 
 	$gs08=$row[3];
 
 	$queryAdd = "INSERT INTO `order` (or_email,or_name,or_address,or_delivery,or_payment,
 				  NTT,ABC,SBS,PB,LPS,RW,OC,LL,OPW,GS01,GS02,GS03,GS04,GS05,GS06,GS07,GS08,or_total)VALUES 
 				('$email','$name','$address','$delivery','$payment','$ntt','$abc','$sbs','$pb','$lps','$rw',
 				'$oc','$ll','$opw','$gs01','$gs02','$gs03','$gs04','$gs05','$gs06','$gs07','$gs08','$total')";
-mysql_query($queryAdd);
+mysqli_query($queryAdd);
 
 $queryemp= "DELETE FROM shoppingcart WHERE email='$email'";
-	mysql_query($queryemp);	
+	mysqli_query($queryemp);	
 ?>
 <?php
 if($payment=="Cash")
@@ -219,8 +219,8 @@ endif;
 			<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$name="SELECT cust_fname FROM customer WHERE cust_email='$email'";
-			$sql=mysql_query($name);
-			$display = mysql_fetch_assoc($sql);
+			$sql=mysqli_query($con,$name);
+			$display = mysqli_fetch_assoc($sql);
 			$name = $display['cust_fname'];
 			?>
 				<a href="homepage.php">Welcome, <?php echo $name;?></a>
@@ -239,8 +239,8 @@ endif;
 		<?php if(isset($_SESSION['email'])): 
 			$email=$_SESSION['email'];
 			$count= "SELECT * FROM shoppingcart WHERE email='$email'";
-			$res = mysql_query($count);
-			$c=mysql_num_rows($res);
+			$res = mysqli_query($con,$count);
+			$c=mysqli_num_rows($res);
 		?>
 		
 		<a href="homepage.php" id="logo"></a>
@@ -333,9 +333,9 @@ if (isset($_POST["btnProceed"]))
 		
 	$email=$_SESSION['email'];
 	$query = "SELECT * FROM `shoppingcart` WHERE email='$email' ORDER BY sc_id ASC";
-	$result = mysql_query($query);
+	$result = mysqli_query($query);
 	$totAll = 0;
-	while($row=mysql_fetch_array($result))
+	while($row=mysqli_fetch_array($result))
 	{
 ?>
 
